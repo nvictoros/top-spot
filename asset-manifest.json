@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.073c9b0a.css",
-    "main.js": "/static/js/main.2c0d812d.js",
-    "static/js/787.8d61485d.chunk.js": "/static/js/787.8d61485d.chunk.js",
-    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/index.html",
-    "main.073c9b0a.css.map": "/static/css/main.073c9b0a.css.map",
-    "main.2c0d812d.js.map": "/static/js/main.2c0d812d.js.map",
-    "787.8d61485d.chunk.js.map": "/static/js/787.8d61485d.chunk.js.map"
+    "main.css": "//nvictoros.github.io/top-spot/static/css/main.073c9b0a.css",
+    "main.js": "//nvictoros.github.io/top-spot/static/js/main.e4f3c9ee.js",
+    "static/js/787.8d61485d.chunk.js": "//nvictoros.github.io/top-spot/static/js/787.8d61485d.chunk.js",
+    "static/media/logo.svg": "//nvictoros.github.io/top-spot/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "//nvictoros.github.io/top-spot/index.html",
+    "main.073c9b0a.css.map": "//nvictoros.github.io/top-spot/static/css/main.073c9b0a.css.map",
+    "main.e4f3c9ee.js.map": "//nvictoros.github.io/top-spot/static/js/main.e4f3c9ee.js.map",
+    "787.8d61485d.chunk.js.map": "//nvictoros.github.io/top-spot/static/js/787.8d61485d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.2c0d812d.js"
+    "static/js/main.e4f3c9ee.js"
   ]
 }
