@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [working, setWorking] = useState<boolean | null>(null);
+
+  const fetchWorkingState = () => {
+    fetch('/working')
+    .then(response => response.json())
+    .then(workingState => setWorking((workingState as any).working))
+    .catch((e) => {
+      console.log(e);
+      setWorking(false)
+    })
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={fetchWorkingState}>Does it work?!</button>
+      {working === null && <div>Maybe?</div>}
+      {working === true && <div>Yep!</div>}
+      {working === false && <div>Nope!</div>}
     </div>
   );
 }
