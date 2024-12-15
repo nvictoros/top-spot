@@ -1,5 +1,6 @@
 import NextAuth from 'next-auth';
 import Spotify from 'next-auth/providers/spotify';
+import "next-auth/jwt"
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [Spotify],
@@ -19,3 +20,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
   }
 });
 
+declare module "next-auth" {
+  interface Session {
+    accessToken?: string
+  }
+}
+
+declare module "next-auth/jwt" {
+  interface JWT {
+    accessToken?: string
+  }
+}
