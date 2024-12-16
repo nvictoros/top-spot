@@ -5,7 +5,7 @@ import { AuthError } from 'next-auth';
 
 export async function authenticate() {
   try {
-    await signIn("spotify", { redirectTo: '/' });
+    await signIn('spotify', { redirectTo: '/' });
   } catch (error) {
     if (error instanceof AuthError) {
       return 'Something went wrong.';
