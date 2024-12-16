@@ -2,12 +2,16 @@ import NextAuth from 'next-auth';
 import Spotify from 'next-auth/providers/spotify';
 import "next-auth/jwt"
 
+const scope = "user-top-read user-read-email"
+
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  providers: [Spotify],
+  providers: [Spotify({
+    authorization:
+      `https://accounts.spotify.com/authorize?scope=${encodeURIComponent(scope)}`
+  })],
   callbacks: {
-    jwt({ token, trigger, session, account }) {
-      if (trigger === "update") token.name = session.user.name
-      if (account?.provider === "keycloak") {
+    jwt({ token, account }) {
+      if (account?.provider === "spotify") {
         return { ...token, accessToken: account.access_token }
       }
       return token
