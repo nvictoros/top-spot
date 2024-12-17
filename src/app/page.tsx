@@ -1,7 +1,7 @@
 import { auth, signOut } from '@/auth';
 import { SessionProvider } from 'next-auth/react';
 import Image from 'next/image';
-import { fetchSpotify } from './lib/data';
+import { fetchTopData, TopDataTimeRange, TopDataType } from '@/app/lib/data';
 
 export default async function Home() {
   const session = await auth();
@@ -16,7 +16,7 @@ export default async function Home() {
     image: session.user.image,
   };
 
-  const topTracks = await fetchSpotify();
+  const topTracks = await fetchTopData(TopDataType.Tracks, TopDataTimeRange.Medium);
 
   return (
     <SessionProvider basePath={'/auth'} session={session}>
