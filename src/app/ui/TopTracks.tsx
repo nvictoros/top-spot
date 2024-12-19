@@ -20,18 +20,17 @@ export const TopTracks = () => {
       <button disabled={timeRange === TopDataTimeRange.Long} onClick={() => setTimeRange(TopDataTimeRange.Long)}>
         LONG
       </button>
-      {isLoading && 'Loading!'}
-      {error && `Uh oh, error: ${error}`}
-      {topData && (
+      {isLoading ? 'Loading!' : null}
+      {error ? `Uh oh, error: ${error.toString()}` : null}
+      {topData ? (
         <ul>
-          {topData.items.map(({ name, artists, id }, index: number) => (
+          {topData.items.map(({ name, id }, index: number) => (
             <li key={id}>
-              {index + 1}. {name} |{' '}
-              {artists.reduce((artists, artist, i) => (artists += (i ? ', ' : '') + artist.name), '')}
+              {index + 1}. {name}
             </li>
           ))}
         </ul>
-      )}
+      ) : null}
     </>
   );
 };

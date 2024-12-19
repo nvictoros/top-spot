@@ -10,7 +10,7 @@ export const TopArtists = () => {
   const { isLoading, error, topData } = useFetchTopArtists({ timeRange });
 
   return (
-    <>
+    <div>
       <button disabled={timeRange === TopDataTimeRange.Short} onClick={() => setTimeRange(TopDataTimeRange.Short)}>
         SHORT
       </button>
@@ -20,9 +20,9 @@ export const TopArtists = () => {
       <button disabled={timeRange === TopDataTimeRange.Long} onClick={() => setTimeRange(TopDataTimeRange.Long)}>
         LONG
       </button>
-      {isLoading && 'Loading!'}
-      {error && `Uh oh, error: ${error}`}
-      {topData && (
+      {isLoading ? 'Loading!' : null}
+      {error ? `Uh oh, error: ${error.toString()}` : null}
+      {topData ? (
         <ul>
           {topData.items.map(({ name, id }, index: number) => (
             <li key={id}>
@@ -30,7 +30,7 @@ export const TopArtists = () => {
             </li>
           ))}
         </ul>
-      )}
-    </>
+      ) : null}
+    </div>
   );
 };
