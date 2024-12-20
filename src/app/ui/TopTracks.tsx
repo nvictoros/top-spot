@@ -24,11 +24,14 @@ export const TopTracks = () => {
       {error ? `Uh oh, error: ${error.toString()}` : null}
       {topData ? (
         <ul>
-          {topData.items.map(({ name, id }, index: number) => (
-            <li key={id}>
-              {index + 1}. {name}
-            </li>
-          ))}
+          {topData.items.map(
+            ({ name, artists, id }: { name: string; artists: { name: string }[]; id: string }, index: number) => (
+              <li key={id}>
+                {index + 1}. {name} |{' '}
+                {artists.reduce((artists: string, artist, i: number) => (artists += (i ? ', ' : '') + artist.name), '')}
+              </li>
+            ),
+          )}
         </ul>
       ) : null}
     </>
