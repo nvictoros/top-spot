@@ -17,7 +17,7 @@ export default async function Home() {
   };
 
   return (
-    <SessionProvider basePath={'/auth'} session={session}>
+    <SessionProvider basePath={'/api/auth'} session={session}>
       <div>{session?.user?.name}</div>
       <Image alt="" width={100} height={100} src={session?.user?.image || ''} />
       <TopData />
