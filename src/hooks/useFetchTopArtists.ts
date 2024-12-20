@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { TopDataTimeRange } from './topData.types';
+import { TopDataTimeRange, TopDataTypes } from '../service/topData.types';
+import { fetchTopData } from '@/service/topData';
 
 export type TopArtistItem = {
   name: string;
@@ -10,23 +11,6 @@ export type TopArtistItem = {
 
 export type TopArtistsData = {
   items: TopArtistItem[];
-};
-
-const fetchTopArtists = async (timeRange: TopDataTimeRange) => {
-  try {
-    const response = await fetch(`/api/top/artists?time_range=${timeRange}`, { cache: 'default' });
-
-    if (!response.ok) {
-      const text = await response.text();
-      throw new Error(`Non 200 response ${response.status} ${text}`);
-    }
-
-    const { data } = await response.json();
-
-    return data;
-  } catch (error) {
-    throw new Error(`Error fetching Spotify data: ${error}`);
-  }
 };
 
 export const useFetchTopArtists = ({
@@ -47,7 +31,7 @@ export const useFetchTopArtists = ({
     setError(null);
     setTopData(null);
 
-    fetchTopArtists(timeRange)
+    fetchTopData(TopDataTypes.Artists, timeRange)
       .then((data) => {
         setTopData(data);
       })
