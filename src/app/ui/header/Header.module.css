@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  padding: 0.5rem 1rem;
+  justify-content: space-between;
+  background-color: white;
+  position: sticky;
+  top: 0;
+}
+
+.avatar {
+  border-radius: 5rem;
+}
+
+.heading {
+  justify-self: center;
+}
+
+.signOut {
+  position: absolute;
+  right: 0;
+  margin: 0.25rem;
+  border: none;
+  padding: 0.25rem 0.5rem;
+}

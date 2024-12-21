@@ -12,15 +12,6 @@ export const TopData = () => {
 
   return (
     <>
-      <button disabled={timeRange === TopDataTimeRange.Short} onClick={() => setTimeRange(TopDataTimeRange.Short)}>
-        SHORT
-      </button>
-      <button disabled={timeRange === TopDataTimeRange.Medium} onClick={() => setTimeRange(TopDataTimeRange.Medium)}>
-        MEDIUM
-      </button>
-      <button disabled={timeRange === TopDataTimeRange.Long} onClick={() => setTimeRange(TopDataTimeRange.Long)}>
-        LONG
-      </button>
       <button
         disabled={type === TopDataTypes.Tracks}
         onClick={() => {
@@ -28,7 +19,7 @@ export const TopData = () => {
           setTimeRange(TopDataTimeRange.Medium);
         }}
       >
-        TOP TRACKS
+        Top Tracks
       </button>
       <button
         disabled={type === TopDataTypes.Artists}
@@ -37,8 +28,19 @@ export const TopData = () => {
           setTimeRange(TopDataTimeRange.Medium);
         }}
       >
-        TOP ARTISTS
+        Top Artists
       </button>
+      <br />
+      <button disabled={timeRange === TopDataTimeRange.Short} onClick={() => setTimeRange(TopDataTimeRange.Short)}>
+        Short
+      </button>
+      <button disabled={timeRange === TopDataTimeRange.Medium} onClick={() => setTimeRange(TopDataTimeRange.Medium)}>
+        Medium
+      </button>
+      <button disabled={timeRange === TopDataTimeRange.Long} onClick={() => setTimeRange(TopDataTimeRange.Long)}>
+        Long
+      </button>
+      <br />
 
       {type === TopDataTypes.Tracks ? <TopTracks timeRange={timeRange} /> : <TopArtists timeRange={timeRange} />}
     </>
