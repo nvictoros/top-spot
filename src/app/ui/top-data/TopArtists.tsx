@@ -2,6 +2,8 @@
 
 import { TopDataTimeRange } from '@/service/topData.types';
 import { useFetchTopArtists } from '@/hooks/useFetchTopArtists';
+import styles from './TopArtists.module.css';
+import Image from 'next/image';
 
 export const TopArtists = ({ timeRange }: { timeRange: TopDataTimeRange }) => {
   const { isLoading, error, topData } = useFetchTopArtists({ timeRange });
@@ -11,10 +13,12 @@ export const TopArtists = ({ timeRange }: { timeRange: TopDataTimeRange }) => {
       {isLoading ? 'Loading!' : null}
       {error ? `Uh oh, error: ${error.toString()}` : null}
       {topData ? (
-        <ul>
-          {topData.items.map(({ name, id }, index: number) => (
-            <li key={id}>
-              {index + 1}. {name}
+        <ul className={styles.topArtists}>
+          {topData.items.map(({ name, id, images }, index: number) => (
+            <li key={id} className={styles.topArtist}>
+              <div className={styles.index}>{index + 1}</div>
+              <Image src={images[0].url} width={30} height={30} alt={name} />
+              {name}
             </li>
           ))}
         </ul>

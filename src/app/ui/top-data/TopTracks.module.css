@@ -1,0 +1,31 @@
+.topTracks {
+  list-style: none;
+  padding: 0;
+}
+
+.topTrack {
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  gap: 8px;
+  padding: 4px;
+}
+
+.artist {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: small;
+  color: #3e3e3e;
+  line-height: 1;
+}
+
+.song {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 1.25;
+}
+
+.index {
+  min-width: 20px;
+}

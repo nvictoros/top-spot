@@ -4,10 +4,20 @@ import { useEffect, useState } from 'react';
 import { TopDataTimeRange, TopDataTypes } from '../service/topData.types';
 import { fetchTopData } from '@/service/topData';
 
+type TopTrackAlbum = {
+  images: {
+    height: number;
+    url: string;
+    width: number;
+  }[];
+  name: string;
+};
+
 export type TopTrackItem = {
   name: string;
   artists: { name: string }[];
   id: string;
+  album: TopTrackAlbum;
 };
 
 export type TopTracksData = {

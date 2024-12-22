@@ -1,0 +1,15 @@
+.topArtists {
+  list-style: none;
+  padding: 0;
+}
+
+.topArtist {
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  gap: 8px;
+  padding: 4px;
+}
+
+.index {
+  min-width: 20px;
+}

@@ -7,6 +7,11 @@ import { fetchTopData } from '@/service/topData';
 export type TopArtistItem = {
   name: string;
   id: string;
+  images: {
+    height: number;
+    url: string;
+    width: number;
+  }[];
 };
 
 export type TopArtistsData = {
