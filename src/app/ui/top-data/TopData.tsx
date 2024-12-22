@@ -4,45 +4,24 @@ import { useState } from 'react';
 
 import { TopTracks } from './TopTracks';
 import { TopArtists } from './TopArtists';
+import { TopDataControls } from './TopDataControls';
 import { TopDataTimeRange, TopDataTypes } from '@/service/topData.types';
+import styles from './TopData.module.css';
 
 export const TopData = () => {
   const [timeRange, setTimeRange] = useState(TopDataTimeRange.Medium);
   const [type, setType] = useState<TopDataTypes>(TopDataTypes.Tracks);
 
   return (
-    <>
-      <button
-        disabled={type === TopDataTypes.Tracks}
-        onClick={() => {
-          setType(TopDataTypes.Tracks);
-          setTimeRange(TopDataTimeRange.Medium);
-        }}
-      >
-        Top Tracks
-      </button>
-      <button
-        disabled={type === TopDataTypes.Artists}
-        onClick={() => {
-          setType(TopDataTypes.Artists);
-          setTimeRange(TopDataTimeRange.Medium);
-        }}
-      >
-        Top Artists
-      </button>
-      <br />
-      <button disabled={timeRange === TopDataTimeRange.Short} onClick={() => setTimeRange(TopDataTimeRange.Short)}>
-        Short
-      </button>
-      <button disabled={timeRange === TopDataTimeRange.Medium} onClick={() => setTimeRange(TopDataTimeRange.Medium)}>
-        Medium
-      </button>
-      <button disabled={timeRange === TopDataTimeRange.Long} onClick={() => setTimeRange(TopDataTimeRange.Long)}>
-        Long
-      </button>
-      <br />
+    <div className={styles.topData}>
+      <TopDataControls
+        onTypeChange={setType}
+        onTimeRangeChange={setTimeRange}
+        defaultTimeRange={TopDataTimeRange.Medium}
+        defaultType={TopDataTypes.Tracks}
+      />
 
       {type === TopDataTypes.Tracks ? <TopTracks timeRange={timeRange} /> : <TopArtists timeRange={timeRange} />}
-    </>
+    </div>
   );
 };

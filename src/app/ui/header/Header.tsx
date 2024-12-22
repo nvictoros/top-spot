@@ -15,7 +15,7 @@ export const Header = ({ onSignOutClick }: HeaderProps) => {
 
   return (
     <header className={styles.header}>
-      <h1 className={styles.heading}>TopSpot</h1>
+      <h1 className={styles.heading}>Top Spot</h1>
       <div className={styles.profile}>
         <Image
           onClick={() => setShowSubMenu((show) => !show)}
@@ -25,11 +25,11 @@ export const Header = ({ onSignOutClick }: HeaderProps) => {
           height={50}
           src={session?.user?.image || ''}
         />
-        {showSubMenu ? (
+        <div className={showSubMenu ? styles.subMenu : styles.hiddenSubMenu}>
           <button className={styles.signOut} onClick={onSignOutClick}>
             Sign Out
           </button>
-        ) : null}
+        </div>
       </div>
     </header>
   );
