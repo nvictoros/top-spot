@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { TopDataTimeRange, TopDataTypes } from '../service/topData.types';
 import { fetchTopData } from '@/service/topData';
+import useSWRImmutable from 'swr/immutable';
 
 type TopTrackAlbum = {
   images: {
@@ -33,26 +33,11 @@ export const useFetchTopTracks = ({
   isLoading: boolean;
   topData: TopTracksData | null;
 } => {
-  const [topData, setTopData] = useState<null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<unknown>(null);
-
-  useEffect(() => {
-    setIsLoading(true);
-    setError(null);
-    setTopData(null);
-
-    fetchTopData(TopDataTypes.Tracks, timeRange)
-      .then((data) => {
-        setTopData(data);
-      })
-      .catch((error: unknown) => {
-        setError(error);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, [timeRange]);
+  const {
+    error,
+    isLoading,
+    data: topData,
+  } = useSWRImmutable(['/top/tracks', timeRange], () => fetchTopData(TopDataTypes.Tracks, timeRange));
 
   return { error, isLoading, topData };
 };

@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { TopDataTimeRange, TopDataTypes } from '../service/topData.types';
 import { fetchTopData } from '@/service/topData';
+import useSWRImmutable from 'swr/immutable';
 
 export type TopArtistItem = {
   name: string;
@@ -27,26 +27,11 @@ export const useFetchTopArtists = ({
   isLoading: boolean;
   topData: TopArtistsData | null;
 } => {
-  const [topData, setTopData] = useState<null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<unknown>(null);
-
-  useEffect(() => {
-    setIsLoading(true);
-    setError(null);
-    setTopData(null);
-
-    fetchTopData(TopDataTypes.Artists, timeRange)
-      .then((data) => {
-        setTopData(data);
-      })
-      .catch((error: unknown) => {
-        setError(error);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, [timeRange]);
+  const {
+    error,
+    isLoading,
+    data: topData,
+  } = useSWRImmutable(['/top/artists', timeRange], () => fetchTopData(TopDataTypes.Artists, timeRange));
 
   return { error, isLoading, topData };
 };
