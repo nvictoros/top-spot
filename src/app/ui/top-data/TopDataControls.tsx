@@ -28,7 +28,7 @@ export const TopDataControls = ({
         <option value={TopDataTypes.Tracks}>tracks</option>
         <option value={TopDataTypes.Artists}>artists</option>
       </select>{' '}
-      from the last{' '}
+      of the last{' '}
       <select
         onChange={({ currentTarget }) => {
           onTimeRangeChange(currentTarget.value as TopDataTimeRange);
