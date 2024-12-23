@@ -4,17 +4,17 @@
 }
 
 .topTrack {
-  border-bottom: 1px solid lightgray;
   display: flex;
-  gap: 8px;
-  padding: 4px;
+  gap: 12px;
+  padding: 6px 0;
+  align-items: center;
 }
 
 .artist {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  font-size: small;
+  font-size: 0.875rem;
   color: #3e3e3e;
   line-height: 1;
 }
@@ -24,8 +24,18 @@
   white-space: nowrap;
   overflow: hidden;
   line-height: 1.25;
+  font-size: 1rem;
+  min-width: 0;
 }
 
 .index {
-  min-width: 20px;
+  text-align: end;
+  min-width: 18px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
 }

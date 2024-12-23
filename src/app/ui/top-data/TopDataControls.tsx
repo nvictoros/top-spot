@@ -18,26 +18,26 @@ export const TopDataControls = ({
 }: TopDataControlsType) => {
   return (
     <div className={styles.topDataControls}>
-      Your{' '}
+      Your top{' '}
       <select
         onChange={({ currentTarget }) => {
           onTypeChange(currentTarget.value as TopDataTypes);
         }}
         defaultValue={defaultType}
       >
-        <option value={TopDataTypes.Tracks}>top tracks</option>
-        <option value={TopDataTypes.Artists}>top artists</option>
+        <option value={TopDataTypes.Tracks}>tracks</option>
+        <option value={TopDataTypes.Artists}>artists</option>
       </select>{' '}
-      from the{' '}
+      from the last{' '}
       <select
         onChange={({ currentTarget }) => {
           onTimeRangeChange(currentTarget.value as TopDataTimeRange);
         }}
         defaultValue={defaultTimeRange}
       >
-        <option value={TopDataTimeRange.Short}>last 4 weeks</option>
-        <option value={TopDataTimeRange.Medium}>last 6 months</option>
-        <option value={TopDataTimeRange.Long}>last 12 months</option>
+        <option value={TopDataTimeRange.Short}>4 weeks</option>
+        <option value={TopDataTimeRange.Medium}>6 months</option>
+        <option value={TopDataTimeRange.Long}>12 months</option>
       </select>
     </div>
   );

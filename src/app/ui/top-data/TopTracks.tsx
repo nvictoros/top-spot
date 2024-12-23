@@ -17,8 +17,8 @@ export const TopTracks = ({ timeRange }: { timeRange: TopDataTimeRange }) => {
           {topData.items.map(({ name, artists, id, album }, index: number) => (
             <li key={id} className={styles.topTrack}>
               <div className={styles.index}>{index + 1}</div>
-              <Image src={album.images[0].url} width={30} height={30} alt={album.name} />
-              <span>
+              <Image src={album.images[0].url} width={40} height={40} alt={album.name} />
+              <span className={styles.text}>
                 <div className={styles.song}>{name}</div>
                 <div className={styles.artist}>
                   {artists.reduce(
