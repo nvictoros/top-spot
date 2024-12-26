@@ -13,7 +13,7 @@ export const LoginForm = () => {
       <p>View your top tracks and artists from Spotify</p>
       <form action={formAction}>
         <button className={styles.loginButton} disabled={isPending}>
-          Login
+          Login with Spotify
         </button>
         {errorMessage && <p>{errorMessage}</p>}
       </form>

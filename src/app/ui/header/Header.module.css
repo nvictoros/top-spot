@@ -17,12 +17,6 @@
   position: relative;
 }
 
-.signOut {
-  margin: 0.25rem;
-  border: none;
-  background: none;
-}
-
 .hiddenSubMenu {
   display: none;
 }
@@ -32,6 +26,31 @@
   background-color: lightgrey;
   position: absolute;
   right: 0;
-  width: 100px;
+  width: 125px;
   z-index: 10;
+  border-radius: 4px;
+}
+
+.subMenuItem {
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  padding: 8px;
+  font-size: 0.8rem;
+  position: relative;
+}
+
+.subMenuItem::after {
+  content: '';
+  width: 90%;
+  height: 1px;
+  background-color: #9999;
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+}
+
+.subMenuItem:nth-last-child(1)::after {
+  display: none;
 }
