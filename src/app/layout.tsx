@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Top Spot',
+  title: 'TopSpot',
   description: 'View your top spotify data',
 };
 

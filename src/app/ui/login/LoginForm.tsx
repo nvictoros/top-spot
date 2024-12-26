@@ -9,7 +9,7 @@ export const LoginForm = () => {
 
   return (
     <main className={styles.loginForm}>
-      <h1>Top Spot</h1>
+      <h1>TopSpot</h1>
       <p>View your top tracks and artists from Spotify</p>
       <form action={formAction}>
         <button className={styles.loginButton} disabled={isPending}>
