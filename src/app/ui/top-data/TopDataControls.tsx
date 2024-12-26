@@ -20,6 +20,7 @@ export const TopDataControls = ({
     <div className={styles.topDataControls}>
       Your top{' '}
       <select
+        className={styles.select}
         onChange={({ currentTarget }) => {
           onTypeChange(currentTarget.value as TopDataTypes);
         }}
@@ -30,6 +31,7 @@ export const TopDataControls = ({
       </select>{' '}
       of the last{' '}
       <select
+        className={styles.select}
         onChange={({ currentTarget }) => {
           onTimeRangeChange(currentTarget.value as TopDataTimeRange);
         }}
