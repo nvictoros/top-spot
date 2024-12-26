@@ -4,13 +4,14 @@ import { TopDataTimeRange } from '@/service/topData.types';
 import { useFetchTopTracks } from '@/hooks/useFetchTopTracks';
 import styles from './TopTracks.module.css';
 import Image from 'next/image';
+import { Loading } from '../components/Loading';
 
 export const TopTracks = ({ timeRange }: { timeRange: TopDataTimeRange }) => {
   const { isLoading, error, topData } = useFetchTopTracks({ timeRange });
 
   return (
     <>
-      {isLoading ? 'Loading!' : null}
+      {isLoading ? <Loading /> : null}
       {error ? `Uh oh, error: ${error.toString()}` : null}
       {topData ? (
         <ul className={styles.topTracks}>
