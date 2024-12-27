@@ -12,6 +12,7 @@ export default async function Home() {
   session.user = {
     name: session.user.name,
     image: session.user.image,
+    email: session.user.email,
   };
 
   return (

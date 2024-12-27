@@ -1,3 +1,42 @@
+:root {
+  --backgroundColor: #fff;
+  --textSecondaryColor: #3e3e3e;
+  --textColor: #000;
+}
+
+.dark {
+  --backgroundColor: #222;
+  --textSecondaryColor: grey;
+  --textColor: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light):not(.dark) {
+    --backgroundColor: #222;
+    --textSecondaryColor: grey;
+    --textColor: #fff;
+  }
+}
+
+.light {
+  --backgroundColor: #fff;
+  --textSecondaryColor: #3e3e3e;
+  --textColor: #000;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not(.light):not(.dark) {
+    --backgroundColor: #fff;
+    --textSecondaryColor: #3e3e3e;
+    --textColor: #000;
+  }
+}
+
+* {
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
+}
+
 *,
 *::before,
 *::after {

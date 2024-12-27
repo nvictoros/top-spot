@@ -5,6 +5,7 @@
   margin: 0 auto;
   height: 100vh;
   max-width: 600px;
+  position: relative;
 }
 
 @media only screen and (max-width: 600px) {
