@@ -1,10 +1,12 @@
 :root {
+  color-scheme: light dark;
   --backgroundColor: #fff;
   --textSecondaryColor: #3e3e3e;
   --textColor: #000;
 }
 
 .dark {
+  color-scheme: dark;
   --backgroundColor: #222;
   --textSecondaryColor: grey;
   --textColor: #fff;
@@ -19,6 +21,7 @@
 }
 
 .light {
+  color-scheme: light;
   --backgroundColor: #fff;
   --textSecondaryColor: #3e3e3e;
   --textColor: #000;
