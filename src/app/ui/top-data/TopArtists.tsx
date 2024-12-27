@@ -18,7 +18,7 @@ export const TopArtists = ({ timeRange }: { timeRange: TopDataTimeRange }) => {
           {topData.items.map(({ name, id, images }, index: number) => (
             <li key={id} className={styles.topArtist}>
               <div className={styles.index}>{index + 1}</div>
-              <Image className={styles.artwork} src={images[0].url} width={40} height={40} alt={name} />
+              <Image className={styles.artwork} src={images[0].url} width={45} height={45} alt={name} />
               {name}
             </li>
           ))}

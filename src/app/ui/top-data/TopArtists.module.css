@@ -6,7 +6,7 @@
 .topArtist {
   display: flex;
   gap: 12px;
-  padding: 6px 0;
+  padding: 4px 0;
   align-items: center;
 }
 
