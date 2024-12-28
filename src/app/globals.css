@@ -1,6 +1,7 @@
 :root {
   color-scheme: light dark;
   --backgroundColor: #fff;
+  --backgroundSecondaryColor: #ccc;
   --textSecondaryColor: #3e3e3e;
   --textColor: #000;
 }
@@ -8,14 +9,16 @@
 .dark {
   color-scheme: dark;
   --backgroundColor: #222;
-  --textSecondaryColor: grey;
+  --backgroundSecondaryColor: #555;
+  --textSecondaryColor: darkgrey;
   --textColor: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not(.light):not(.dark) {
     --backgroundColor: #222;
-    --textSecondaryColor: grey;
+    --backgroundSecondaryColor: #555;
+    --textSecondaryColor: darkgrey;
     --textColor: #fff;
   }
 }
@@ -23,6 +26,7 @@
 .light {
   color-scheme: light;
   --backgroundColor: #fff;
+  --backgroundSecondaryColor: #ccc;
   --textSecondaryColor: #3e3e3e;
   --textColor: #000;
 }
@@ -30,6 +34,7 @@
 @media (prefers-color-scheme: light) {
   :root:not(.light):not(.dark) {
     --backgroundColor: #fff;
+    --backgroundSecondaryColor: #555;
     --textSecondaryColor: #3e3e3e;
     --textColor: #000;
   }
