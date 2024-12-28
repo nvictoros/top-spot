@@ -1,6 +1,12 @@
 import { auth } from '@/auth';
 import { SessionProvider } from 'next-auth/react';
 import { App } from './ui/app/App';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'TopSpot',
+  description: 'View your top spotify data',
+};
 
 export default async function Home() {
   const session = await auth();

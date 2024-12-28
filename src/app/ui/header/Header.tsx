@@ -4,6 +4,7 @@ import Image from 'next/image';
 import styles from './Header.module.css';
 import { useSession } from 'next-auth/react';
 import { useEffect, useRef, useState } from 'react';
+import { Themes } from '../types/theme.types';
 
 type HeaderProps = {
   onSignOutClick: () => void;
@@ -61,23 +62,15 @@ export const Header = ({ onSignOutClick }: HeaderProps) => {
         <div className={styles.subMenuItem}>
           Theme:{' '}
           <select
-            onChange={(e) => {
-              switch (e.target.value) {
-                case 'OS default':
-                  document.documentElement.className = 'os-default';
-                  break;
-                case 'Light':
-                  document.documentElement.className = 'light';
-                  break;
-                case 'Dark':
-                  document.documentElement.className = 'dark';
-                  break;
-              }
+            onChange={({ target }) => {
+              document.documentElement.className = target.value;
+              window.localStorage.setItem('theme', target.value);
             }}
+            defaultValue={window.localStorage.getItem('theme') || Themes.OSDefault}
           >
-            <option>OS default</option>
-            <option>Light</option>
-            <option>Dark</option>
+            <option value={Themes.OSDefault}>OS default</option>
+            <option value={Themes.Light}>Light</option>
+            <option value={Themes.Dark}>Dark</option>
           </select>
         </div>
         <button className={styles.subMenuItem} onClick={onSignOutClick}>
