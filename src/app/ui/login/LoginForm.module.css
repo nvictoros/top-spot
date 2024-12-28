@@ -14,4 +14,6 @@
   background-color: var(--backgroundSecondaryColor);
   color: var(--text-color);
   padding: 0.5rem 1rem;
+  font-size: small;
+  cursor: pointer;
 }
