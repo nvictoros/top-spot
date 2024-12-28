@@ -10,5 +10,8 @@
 
 .loginButton {
   border-radius: 2rem;
+  border: none;
+  background-color: var(--backgroundSecondaryColor);
+  color: var(--text-color);
   padding: 0.5rem 1rem;
 }
