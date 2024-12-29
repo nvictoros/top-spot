@@ -18,6 +18,9 @@ export type TopTrackItem = {
   artists: { name: string }[];
   id: string;
   album: TopTrackAlbum;
+  external_urls: {
+    spotify: string;
+  };
 };
 
 export type TopTracksData = {
