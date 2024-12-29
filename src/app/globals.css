@@ -40,7 +40,7 @@
   }
 }
 
-* {
+body {
   background-color: var(--backgroundColor);
   color: var(--textColor);
 }
