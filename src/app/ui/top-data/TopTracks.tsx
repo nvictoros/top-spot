@@ -35,8 +35,9 @@ export const TopTracks = ({ timeRange }: { timeRange: TopDataTimeRange }) => {
   }, [showMoreTrackId]);
 
   if (isLoading) {
-    <Loading />;
+    return <Loading />;
   }
+
   if (error) {
     return `Uh oh, error: ${error.toString()}`;
   }

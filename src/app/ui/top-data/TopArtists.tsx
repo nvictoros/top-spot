@@ -9,10 +9,16 @@ import { Loading } from '../components/Loading';
 export const TopArtists = ({ timeRange }: { timeRange: TopDataTimeRange }) => {
   const { isLoading, error, topData } = useFetchTopArtists({ timeRange });
 
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (error) {
+    return `Uh oh, error: ${error.toString()}`;
+  }
+
   return (
     <div>
-      {isLoading ? <Loading /> : null}
-      {error ? `Uh oh, error: ${error.toString()}` : null}
       {topData ? (
         <ul className={styles.topArtists}>
           {topData.items.map(({ name, id, images }, index: number) => (
