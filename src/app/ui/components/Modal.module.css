@@ -15,6 +15,7 @@
   display: flex;
   justify-content: center;
   margin: auto;
+  animation: grow 0.2s;
 }
 
 @keyframes show {
@@ -23,5 +24,14 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes grow {
+  from {
+    scale: 0.9;
+  }
+  to {
+    scale: 1;
   }
 }
