@@ -15,8 +15,6 @@ export const Marquee = ({ children, className }: MarqueeProps) => {
     const marqueeContentWidth = marqueeContent?.current?.scrollWidth || 0;
     const marqueeWrapperWidth = marqueeWrapper?.current?.clientWidth || 0;
 
-    console.log({ className, marqueeContentWidth, marqueeWrapperWidth });
-
     if (marqueeContentWidth > marqueeWrapperWidth) {
       setMarqueeText(true);
     }
