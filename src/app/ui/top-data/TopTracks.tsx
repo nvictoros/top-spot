@@ -6,33 +6,13 @@ import styles from './TopTracks.module.css';
 import Image from 'next/image';
 import { Loading } from '../components/Loading';
 import { MoreIcon } from '@/icons/MoreIcon';
-import { useEffect, useRef, useState } from 'react';
-import { createPortal } from 'react-dom';
+import { useState } from 'react';
 import { TopTrackInfo } from './TopTrackInfo';
+import { Modal } from '../components/Modal';
 
 export const TopTracks = ({ timeRange }: { timeRange: TopDataTimeRange }) => {
   const [showMoreTrackId, setShowMoreTrackId] = useState<string | null>(null);
   const { isLoading, error, topData } = useFetchTopTracks({ timeRange });
-  const showMoreRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const handleDocClick = (event: MouseEvent) => {
-      if (event.target instanceof Element) {
-        if (!showMoreRef.current?.contains(event.target)) {
-          if (showMoreTrackId) {
-            setShowMoreTrackId(null);
-            event.stopPropagation();
-          }
-        }
-      }
-    };
-
-    document.body.addEventListener('click', handleDocClick);
-
-    return () => {
-      document.body.removeEventListener('click', handleDocClick);
-    };
-  }, [showMoreTrackId]);
 
   if (isLoading) {
     return <Loading />;
@@ -68,18 +48,16 @@ export const TopTracks = ({ timeRange }: { timeRange: TopDataTimeRange }) => {
           ))}
         </ul>
       }
-      {showMoreTrack
-        ? createPortal(
-            <TopTrackInfo
-              external_urls={showMoreTrack.external_urls}
-              ref={showMoreRef}
-              album={showMoreTrack.album}
-              name={showMoreTrack.name}
-              artists={showMoreTrack.artists}
-            />,
-            document.body,
-          )
-        : null}
+      {showMoreTrack ? (
+        <Modal onClose={() => setShowMoreTrackId(null)}>
+          <TopTrackInfo
+            external_urls={showMoreTrack.external_urls}
+            album={showMoreTrack.album}
+            name={showMoreTrack.name}
+            artists={showMoreTrack.artists}
+          />
+        </Modal>
+      ) : null}
     </>
   );
 };
