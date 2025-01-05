@@ -28,7 +28,7 @@ export const TopTrackInfo = ({ ref, album, name, artists, external_urls }: TopTr
     palette && (
       <div
         className={styles.topTrackInfo}
-        style={{ background: `linear-gradient(${palette?.Vibrant?.hex}, ${palette?.DarkMuted?.hex})  ` }}
+        style={{ background: `linear-gradient(${palette?.Vibrant?.hex}, ${palette?.DarkMuted?.hex})` }}
         ref={ref}
       >
         <Image className={styles.artwork} src={albumImageUrl} width={250} height={250} alt={album.name} />

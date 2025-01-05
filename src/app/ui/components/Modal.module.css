@@ -8,10 +8,20 @@
   z-index: 5;
   display: flex;
   padding: 2rem;
+  animation: show 0.2s ease-in-out;
 }
 
 .modalContent {
   display: flex;
   justify-content: center;
   margin: auto;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
