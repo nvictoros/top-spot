@@ -7,12 +7,11 @@ import Image from 'next/image';
 import { SpotifyIcon } from '@/icons/SpotifyIcon';
 import { Vibrant } from 'node-vibrant/browser';
 import { Palette } from '@vibrant/color';
+import { Marquee } from '../components/Marquee';
 
-type TopTrackInfoProps = {
-  ref?: React.RefObject<HTMLDivElement | null>;
-} & Omit<TopTrackItem, 'id'>;
+type TopTrackInfoProps = Omit<TopTrackItem, 'id'>;
 
-export const TopTrackInfo = ({ ref, album, name, artists, external_urls }: TopTrackInfoProps) => {
+export const TopTrackInfo = ({ album, name, artists, external_urls }: TopTrackInfoProps) => {
   const [palette, setPalette] = useState<Palette | null>(null);
   const albumImageUrl = album.images[0].url;
 
@@ -29,14 +28,13 @@ export const TopTrackInfo = ({ ref, album, name, artists, external_urls }: TopTr
       <div
         className={styles.topTrackInfo}
         style={{ background: `linear-gradient(${palette?.Vibrant?.hex}, ${palette?.DarkMuted?.hex})` }}
-        ref={ref}
       >
         <Image className={styles.artwork} src={albumImageUrl} width={250} height={250} alt={album.name} />
         <span className={styles.text}>
-          <div className={styles.song}>{name}</div>
-          <div className={styles.artist}>
+          <Marquee className={styles.song}>{name}</Marquee>
+          <Marquee className={styles.artist}>
             {artists.reduce((artists: string, artist, i: number) => (artists += (i ? ', ' : '') + artist.name), '')}
-          </div>
+          </Marquee>
         </span>
         <a
           style={{ backgroundColor: palette?.Vibrant?.hex }}
