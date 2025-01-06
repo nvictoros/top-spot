@@ -7,7 +7,7 @@ type MarqueeProps = {
   space?: number;
 };
 
-export const Marquee = ({ children, className, space = 8 }: MarqueeProps) => {
+export const Marquee = ({ children, className, space = 12 }: MarqueeProps) => {
   const marqueeWrapper = useRef<HTMLDivElement | null>(null);
   const marqueeContent = useRef<HTMLDivElement | null>(null);
   const marqueeTextElement = useRef<HTMLDivElement | null>(null);
@@ -26,7 +26,7 @@ export const Marquee = ({ children, className, space = 8 }: MarqueeProps) => {
   useEffect(() => {
     const animationMsPerPx = 40;
     const duration = (marqueeContentWithSpaces?.current?.getBoundingClientRect().width || 0) * animationMsPerPx;
-    const initialDelay = 1000;
+    const initialDelay = 750;
     const delayOffset = initialDelay / duration;
 
     if (marqueeText) {
