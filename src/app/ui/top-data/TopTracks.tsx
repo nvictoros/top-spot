@@ -41,7 +41,7 @@ export const TopTracks = ({ timeRange }: { timeRange: TopDataTimeRange }) => {
                   )}
                 </div>
               </span>
-              <button onClick={() => setShowMoreTrackId(id)} className={styles.more}>
+              <button aria-label="more" onClick={() => setShowMoreTrackId(id)} className={styles.more}>
                 <MoreIcon fill="currentColor" />
               </button>
             </li>

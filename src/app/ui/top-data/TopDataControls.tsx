@@ -20,6 +20,7 @@ export const TopDataControls = ({
     <div className={styles.topDataControls}>
       Your top{' '}
       <select
+        aria-label="Top data type"
         className={styles.select}
         onChange={({ currentTarget }) => {
           onTypeChange(currentTarget.value as TopDataTypes);
@@ -31,6 +32,7 @@ export const TopDataControls = ({
       </select>{' '}
       of the last{' '}
       <select
+        aria-label="Top data time range"
         className={styles.select}
         onChange={({ currentTarget }) => {
           onTimeRangeChange(currentTarget.value as TopDataTimeRange);

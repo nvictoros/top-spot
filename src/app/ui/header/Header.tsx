@@ -20,6 +20,7 @@ export const Header = ({ onSignOutClick }: HeaderProps) => {
     <header className={styles.header}>
       <h1 className={styles.heading}>TopSpot</h1>
       <Image
+        aria-label="Open menu"
         onClick={() => setShowMenu((show) => !show)}
         role="button"
         className={styles.avatar}
