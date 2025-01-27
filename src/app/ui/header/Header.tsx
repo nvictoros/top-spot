@@ -4,7 +4,7 @@ import Image from 'next/image';
 import styles from './Header.module.css';
 import { useSession } from 'next-auth/react';
 import { useRef, useState } from 'react';
-import { Menu } from '../menu/Menu';
+import { Menu } from '../components/Menu';
 import { Modal } from '../components/Modal';
 
 type HeaderProps = {

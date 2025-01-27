@@ -12,14 +12,14 @@ export const Marquee = ({ children, className, space = 12 }: MarqueeProps) => {
   const marqueeContent = useRef<HTMLDivElement | null>(null);
   const marqueeTextElement = useRef<HTMLDivElement | null>(null);
   const marqueeContentWithSpaces = useRef<HTMLDivElement | null>(null);
-  const [marqueeText, setMarqueeText] = useState<boolean>(false);
+  const [shouldMarqueeText, setShouldMarqueeText] = useState<boolean>(false);
 
   useEffect(() => {
     const marqueeContentWidth = marqueeContent?.current?.clientWidth || 0;
     const marqueeWrapperWidth = marqueeWrapper?.current?.clientWidth || 0;
 
     if (marqueeContentWidth > marqueeWrapperWidth) {
-      setMarqueeText(true);
+      setShouldMarqueeText(true);
     }
   }, [children]);
 
@@ -29,39 +29,31 @@ export const Marquee = ({ children, className, space = 12 }: MarqueeProps) => {
     const initialDelay = 750;
     const delayOffset = initialDelay / duration;
 
-    if (marqueeText) {
+    if (shouldMarqueeText) {
       marqueeTextElement?.current?.animate(
         [
-          {
-            transform: 'translate(0, 0)',
-            offset: 0,
-          },
-          {
-            transform: 'translate(0, 0)',
-            offset: delayOffset,
-          },
-          {
-            transform: 'translate(-50%, 0)',
-            offset: 1,
-          },
+          { transform: 'translate(0, 0)', offset: 0 },
+          { transform: 'translate(0, 0)', offset: delayOffset },
+          { transform: 'translate(-50%, 0)', offset: 1 },
         ],
-        {
-          duration,
-          iterations: Infinity,
-        },
+        { duration, iterations: Infinity },
       );
     }
-  }, [marqueeText]);
+  }, [shouldMarqueeText]);
 
   return (
     <span ref={marqueeWrapper}>
       <p className={`${styles.hidden} ${className}`} ref={marqueeContent}>
         {children}
       </p>
-      {marqueeText ? (
+      <p className={`${styles.hidden} ${className}`} ref={marqueeContentWithSpaces}>
+        {children}
+        {'\u00A0'.repeat(space)}
+      </p>
+      {shouldMarqueeText ? (
         <div className={styles.wrapper}>
           <div ref={marqueeTextElement} className={styles.marquee}>
-            <p ref={marqueeContentWithSpaces} className={className}>
+            <p className={className}>
               {children}
               {'\u00A0'.repeat(space)}
             </p>
