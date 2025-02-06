@@ -5,11 +5,12 @@
   flex-direction: column;
   gap: 1rem;
   width: 300px;
+  color: #fff;
 }
 
 .artist {
   font-size: 0.875rem;
-  color: var(--textSecondaryColor);
+  color: darkgrey;
   line-height: 1;
 }
 
@@ -33,7 +34,7 @@
 }
 
 .play {
-  color: var(--textColor);
+  color: #fff;
   text-decoration: none;
   border: none;
   background-color: var(--backgroundSecondaryColor);
