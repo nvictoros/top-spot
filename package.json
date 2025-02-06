@@ -11,6 +11,7 @@
     "clean": "rm -rf .next node_modules tsconfig.tsbuildinfo"
   },
   "dependencies": {
+    "@sentry/nextjs": "^8",
     "@vibrant/color": "^4.0.0",
     "next": "15.0.4",
     "next-auth": "5.0.0-beta.25",
