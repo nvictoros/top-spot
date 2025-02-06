@@ -3,6 +3,7 @@ import { SessionProvider } from 'next-auth/react';
 import { App } from './ui/app/App';
 import { Metadata } from 'next';
 import { ErrorBoundary } from './ui/components/ErrorBoundary';
+import { GenericError } from './ui/components/GenericError';
 
 export const metadata: Metadata = {
   title: 'TopSpot',
@@ -24,7 +25,7 @@ export default async function Home() {
 
   return (
     <SessionProvider basePath={'/api/auth'} session={session}>
-      <ErrorBoundary fallback={<div>Something has gone wrong!</div>}>
+      <ErrorBoundary fallback={<GenericError />}>
         <App />
       </ErrorBoundary>
     </SessionProvider>
