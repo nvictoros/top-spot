@@ -2,6 +2,7 @@
 
 import { TopDataTimeRange, TopDataTypes } from '../service/topData.types';
 import { fetchTopData } from '@/service/topData';
+import { SWRConfiguration } from 'swr';
 import useSWRImmutable from 'swr/immutable';
 
 type TopTrackAlbum = {
@@ -29,8 +30,10 @@ export type TopTracksData = {
 
 export const useFetchTopTracks = ({
   timeRange,
+  onError,
 }: {
   timeRange: TopDataTimeRange;
+  onError?: SWRConfiguration['onError'];
 }): {
   error: unknown;
   isLoading: boolean;
@@ -40,7 +43,7 @@ export const useFetchTopTracks = ({
     error,
     isLoading,
     data: topData,
-  } = useSWRImmutable(['/top/tracks', timeRange], () => fetchTopData(TopDataTypes.Tracks, timeRange));
+  } = useSWRImmutable(['/top/tracks', timeRange], () => fetchTopData(TopDataTypes.Tracks, timeRange), { onError });
 
   return { error, isLoading, topData };
 };

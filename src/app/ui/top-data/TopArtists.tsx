@@ -7,14 +7,15 @@ import Image from 'next/image';
 import { Loading } from '../components/Loading';
 
 export const TopArtists = ({ timeRange }: { timeRange: TopDataTimeRange }) => {
-  const { isLoading, error, topData } = useFetchTopArtists({ timeRange });
+  const { isLoading, topData } = useFetchTopArtists({
+    timeRange,
+    onError: (error) => {
+      throw error;
+    },
+  });
 
   if (isLoading) {
     return <Loading />;
-  }
-
-  if (error) {
-    return `Uh oh, error: ${error.toString()}`;
   }
 
   return (

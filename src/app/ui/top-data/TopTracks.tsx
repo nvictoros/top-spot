@@ -12,14 +12,15 @@ import { Modal } from '../components/Modal';
 
 export const TopTracks = ({ timeRange }: { timeRange: TopDataTimeRange }) => {
   const [showMoreTrackId, setShowMoreTrackId] = useState<string | null>(null);
-  const { isLoading, error, topData } = useFetchTopTracks({ timeRange });
+  const { isLoading, topData } = useFetchTopTracks({
+    timeRange,
+    onError: (error) => {
+      throw error;
+    },
+  });
 
   if (isLoading) {
     return <Loading />;
-  }
-
-  if (error) {
-    return `Uh oh, error: ${error.toString()}`;
   }
 
   const showMoreTrack = topData?.items.find(({ id }) => id === showMoreTrackId);
