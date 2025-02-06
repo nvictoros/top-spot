@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import { TopTrackItem } from '@/hooks/useFetchTopTracks';
 import styles from './TopTrackInfo.module.css';
-import Image from 'next/image';
 import { SpotifyIcon } from '@/icons/SpotifyIcon';
 import { Vibrant } from 'node-vibrant/browser';
 import { Palette } from '@vibrant/color';
@@ -29,7 +28,8 @@ export const TopTrackInfo = ({ album, name, artists, external_urls }: TopTrackIn
         className={styles.topTrackInfo}
         style={{ background: `linear-gradient(${palette?.Vibrant?.hex}, ${palette?.DarkMuted?.hex})` }}
       >
-        <Image className={styles.artwork} src={albumImageUrl} width={250} height={250} alt={album.name} />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img className={styles.artwork} src={albumImageUrl} width={250} height={250} alt={album.name} />
         <span className={styles.text}>
           <Marquee className={styles.song}>{name}</Marquee>
           <Marquee className={styles.artist}>
